@@ -10,6 +10,9 @@ export function CreatePost() {
 
     async function createPost() {
 
+        //if title or body empty, do not navigate back to "/"
+        if(!title || !body) {return;}
+
         const response = await fetch(
             "https://dummyjson.com/posts/add",
             {
@@ -59,7 +62,7 @@ export function CreatePost() {
                 Create Post
             </button>
             </div>
-            
+
         </>
     )
 
