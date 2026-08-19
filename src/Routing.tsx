@@ -6,6 +6,7 @@ import {
 
 import {PostPage} from "./PostPage.tsx";
 import {App} from "./App.tsx";
+import {CreatePost} from "./CreatePost.tsx";
 
 const routes: RouteObject[] = [
     {
@@ -15,6 +16,10 @@ const routes: RouteObject[] = [
     {
         path: "/post/:id",
         element: <PostPage />
+    },
+    {
+        path: "/create",
+        element: <CreatePost />
     }
 ]
 
