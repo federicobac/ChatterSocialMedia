@@ -3,7 +3,7 @@ import './App.css'
 import type {Post} from "./model.ts";
 import {PostDetails} from "./PostDetails.tsx";
 
-export default function App() {
+export function App() {
     const [posts, setPosts] = useState<Post[]>([])
     const [searchTerm, setSearchTerm] = useState<string>("")
 
