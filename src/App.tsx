@@ -24,6 +24,14 @@ export function App() {
         setPosts(json.posts)
     }
 
+    async function deletePost(id: number) {
+        await fetch(`https://dummyjson.com/posts/${id}`, {
+            method: "DELETE",
+        });
+
+        setPosts(posts.filter(post => post.id !== id));
+    }
+
     return (
         <>
             <div>
@@ -47,8 +55,12 @@ export function App() {
             </div>
 
             <div>
-                {posts.map(p => {
-                    return <PostDetails post={p} />;
+                {posts.map(post => {
+                    return <PostDetails
+                        key={post.id}
+                        post={post}
+                        onDelete={deletePost}
+                    />;
                 })}
             </div>
         </>
