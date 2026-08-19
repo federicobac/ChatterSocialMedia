@@ -1,4 +1,4 @@
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import {useEffect, useState} from "react";
 import type {Post} from "./models/Post.ts";
 import type {Comment} from "./models/Comment.ts";
@@ -6,6 +6,7 @@ import type {Comment} from "./models/Comment.ts";
 export function PostPage() {
 
     const {id} = useParams<{ id: string }>();
+    const navigate = useNavigate();
 
     const [post, setPost] = useState<Post[]>([]);
     const [comments, setComments] = useState<Comment[]>([]);
@@ -21,6 +22,22 @@ export function PostPage() {
 
     }, [id]);
 
+    async function deletePost() {
+
+        const response = await fetch(
+            `https://dummyjson.com/posts/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        const json = await response.json();
+        console.log(json);
+
+        navigate("/");
+
+    }
+
 
     return (
         <>
@@ -28,6 +45,10 @@ export function PostPage() {
                 <div key={post.id}>
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
+
+                    <button onClick={deletePost}>
+                        Delete Post
+                    </button>
                 </div>
             )}
 
