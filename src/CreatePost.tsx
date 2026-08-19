@@ -1,9 +1,12 @@
 import {useState} from "react";
+import {useNavigate} from "react-router";
 
 export function CreatePost() {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+
+    const navigate = useNavigate();
 
     async function createPost() {
 
@@ -25,32 +28,39 @@ export function CreatePost() {
         const json = await response.json();
 
         console.log(json);
-
+        navigate("/");
     }
 
     return (
+        <>
 
-        <div>
-            <h1>Create post</h1>
+            <div>
+                <h1>Create post</h1>
+            </div>
 
-            <input
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-                placeholder="Enter Post Title"
-            />
+            <div>
+                <input
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    placeholder="Enter Post Title"
+                />
+            </div>
 
-            <textarea
-                value={body}
-                onChange={e => setBody(e.target.value)}
-                placeholder="Enter Post Body"
-            />
+            <div>
+                <textarea
+                    value={body}
+                    onChange={e => setBody(e.target.value)}
+                    placeholder="Enter Post Body"
+                />
+            </div>
 
+            <div>
             <button onClick={createPost}>
                 Create Post
             </button>
-
-        </div>
-
+            </div>
+            
+        </>
     )
 
 }
