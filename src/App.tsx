@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import './App.css'
-import type {Post} from "./model.ts";
+import type {Post} from "./models/Post.ts";
 import {PostDetails} from "./PostDetails.tsx";
 
 export function App() {

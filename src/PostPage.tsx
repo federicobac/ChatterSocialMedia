@@ -1,6 +1,6 @@
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
-import type {Post} from "./model.ts";
+import type {Post} from "./models/Post.ts";
 
 export function PostPage() {
 
