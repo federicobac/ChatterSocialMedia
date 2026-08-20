@@ -1,7 +1,7 @@
 import {useNavigate, useParams} from "react-router";
 import {useEffect, useState} from "react";
-import type {Post} from "./models/Post.ts";
-import type {Comment} from "./models/Comment.ts";
+import type {Post} from "../models/Post.ts";
+import type {Comment} from "../models/Comment.ts";
 
 export function PostPage() {
 

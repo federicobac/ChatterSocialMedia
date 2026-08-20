@@ -4,9 +4,9 @@ import {
     RouterProvider
 } from "react-router";
 
-import {PostPage} from "./PostPage.tsx";
-import {Feed} from "./Feed.tsx";
-import {CreatePost} from "./CreatePost.tsx";
+import {PostPage} from "./pages/PostPage.tsx";
+import {Feed} from "./pages/Feed.tsx";
+import {CreatePost} from "./pages/CreatePost.tsx";
 
 const routes: RouteObject[] = [
     {

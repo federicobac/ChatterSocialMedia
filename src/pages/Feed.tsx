@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
-import './App.css'
-import type {Post} from "./models/Post.ts";
-import {PostInFeed} from "./PostInFeed.tsx";
+import '../App.css'
+import type {Post} from "../models/Post.ts";
+import {PostInFeed} from "../components/PostInFeed.tsx";
 import {useNavigate} from "react-router";
-import SearchBar from "./SearchBar.tsx";
+import SearchBar from "../components/SearchBar.tsx";
 
 export function Feed() {
     const [posts, setPosts] = useState<Post[]>([])

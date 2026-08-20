@@ -1,4 +1,4 @@
-import type {Post} from "./models/Post.ts";
+import type {Post} from "../models/Post.ts";
 import {useNavigate} from "react-router";
 
 interface PostInFeedProps {
