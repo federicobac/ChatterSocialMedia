@@ -40,29 +40,39 @@ export function PostPage() {
 
 
     return (
-        <>
-            {post.map(post =>
-                <div key={post.id}>
-                    <h1>{post.title}</h1>
-                    <p>{post.body}</p>
-                    <p>Likes: {post.reactions.likes}</p>
-                    <p>Dislikes: {post.reactions.dislikes}</p>
+        <main>
 
-                    <button onClick={deletePost}>
-                        Delete Post
-                    </button>
-                </div>
-            )}
+            <article>
+                {post.map(post =>
+                    <div key={post.id}>
+                        <h1>{post.title}</h1>
+                        <p>{post.body}</p>
 
-            <h2>Comment Section</h2>
+                        <p>
+                            👍{post.reactions.likes}
+                            👎{post.reactions.dislikes}
+                            👁 {post.views}
+                        </p>
 
-            {comments.map(comment =>
-                <div key={comment.id}>
-                    <h3>{comment.user.username}</h3>
-                    <p>{comment.body}</p>
-                </div>
-            )}
-        </>
+                        <button onClick={deletePost}>
+                            Delete Post
+                        </button>
+                    </div>
+                )}
+            </article>
+
+            <section>
+                <h2>Comment Section</h2>
+
+                {comments.map(comment =>
+                    <div key={comment.id}>
+                        <h3>{comment.user.username}</h3>
+                        <p>{comment.body}</p>
+                    </div>
+                )}
+            </section>
+
+        </main>
     )
 
 }

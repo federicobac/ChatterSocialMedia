@@ -34,10 +34,19 @@ export function App() {
 
     return (
         <>
+            <header>
+                <h1>Chatter Social Media</h1>
+
+                <form>
+
+                </form>
+
+            </header>
             <div>
                 <input
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
+                    placeholder="Search for posts"
                 />
 
                 <button onClick={() => getData()}>
@@ -46,15 +55,15 @@ export function App() {
 
             </div>
 
-            <div>
+            <header>
 
                 <button onClick={() => navigate("/create")}>
                     Create Post
                 </button>
 
-            </div>
+            </header>
 
-            <div>
+            <main>
                 {posts.map(post => {
                     return <PostDetails
                         key={post.id}
@@ -62,7 +71,7 @@ export function App() {
                         onDelete={deletePost}
                     />;
                 })}
-            </div>
+            </main>
         </>
     );
 }

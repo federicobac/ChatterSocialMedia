@@ -182,3 +182,59 @@
     border-right-color: var(--border);
   }
 }
+
+/* =========================
+   ChatterSocialMedia Theme
+   ========================= */
+
+body {
+  max-width: 900px;
+  margin: auto;
+
+  background: #111111;
+  color: #ffffff;
+}
+
+/* Main application title */
+h1 {
+  color: #ffffff;
+}
+
+/* Post titles */
+h2 {
+  color: #f2f2f2;
+}
+
+/* Main post content */
+p {
+  color: #d9d9d9;
+}
+
+/* Secondary information */
+article footer {
+  color: #a6a6a6;
+}
+
+/* Search input */
+input {
+  color: #ffffff;
+  background: #222222;
+  border: 1px solid #555555;
+}
+
+/* Placeholder text */
+input::placeholder {
+  color: #999999;
+}
+
+/* Buttons */
+button {
+  color: #ffffff;
+  background: #333333;
+  border: 1px solid #666666;
+}
+
+/* Button hover */
+button:hover {
+  background: #444444;
+}

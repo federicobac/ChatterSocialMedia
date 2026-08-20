@@ -12,16 +12,18 @@ export function PostDetails({post, onDelete}: PostDetailsProps) {
 
     return (
         <div>
-            <h1>{post.title}</h1>
+            <h2>{post.title}</h2>
             <p>{post.body}</p>
 
-            <button onClick={() => navigate(`/post/${post.id}`)}>
-                Open post
-            </button>
+            <footer>
+                <button onClick={() => navigate(`/post/${post.id}`)}>
+                    Open post
+                </button>
 
-            <button onClick={() => onDelete(post.id)}>
-                Delete post
-            </button>
+                <button onClick={() => onDelete(post.id)}>
+                    Delete post
+                </button>
+            </footer>
 
         </div>
     )
