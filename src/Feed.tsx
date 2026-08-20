@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react'
 import './App.css'
 import type {Post} from "./models/Post.ts";
-import {PostDetails} from "./PostDetails.tsx";
+import {PostInFeed} from "./PostInFeed.tsx";
 import {useNavigate} from "react-router";
+import SearchBar from "./SearchBar.tsx";
 
-export function App() {
+export function Feed() {
     const [posts, setPosts] = useState<Post[]>([])
     const [searchTerm, setSearchTerm] = useState<string>("")
 
@@ -36,23 +37,14 @@ export function App() {
         <>
             <header>
                 <h1>Chatter Social Media</h1>
-
-                <form>
-
-                </form>
-
             </header>
+
             <div>
-                <input
+                <SearchBar
                     value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                    placeholder="Search for posts"
+                    onChange={setSearchTerm}
+                    onClick={getData}
                 />
-
-                <button onClick={() => getData()}>
-                    Search
-                </button>
-
             </div>
 
             <header>
@@ -65,7 +57,7 @@ export function App() {
 
             <main>
                 {posts.map(post => {
-                    return <PostDetails
+                    return <PostInFeed
                         key={post.id}
                         post={post}
                         onDelete={deletePost}

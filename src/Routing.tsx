@@ -5,13 +5,13 @@ import {
 } from "react-router";
 
 import {PostPage} from "./PostPage.tsx";
-import {App} from "./App.tsx";
+import {Feed} from "./Feed.tsx";
 import {CreatePost} from "./CreatePost.tsx";
 
 const routes: RouteObject[] = [
     {
         path: "/",
-        element: <App />
+        element: <Feed />
     },
     {
         path: "/post/:id",

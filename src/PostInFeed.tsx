@@ -1,12 +1,12 @@
 import type {Post} from "./models/Post.ts";
 import {useNavigate} from "react-router";
 
-interface PostDetailsProps {
+interface PostInFeedProps {
     post: Post,
     onDelete: (id: number) => void,
 }
 
-export function PostDetails({post, onDelete}: PostDetailsProps) {
+export function PostInFeed({post, onDelete}: PostInFeedProps) {
 
     const navigate = useNavigate();
 
