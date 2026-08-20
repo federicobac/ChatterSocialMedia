@@ -45,6 +45,8 @@ export function PostPage() {
                 <div key={post.id}>
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
+                    <p>Likes: {post.reactions.likes}</p>
+                    <p>Dislikes: {post.reactions.dislikes}</p>
 
                     <button onClick={deletePost}>
                         Delete Post
