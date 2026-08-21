@@ -6,7 +6,7 @@ interface PostInFeedProps {
     onDelete: (id: number) => void,
 }
 
-export function PostInFeed({post, onDelete}: PostInFeedProps) {
+export function PostDetails({post, onDelete}: PostInFeedProps) {
 
     const navigate = useNavigate();
 

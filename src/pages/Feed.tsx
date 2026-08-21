@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import '../App.css'
 import type {Post} from "../models/Post.ts";
-import {PostInFeed} from "../components/PostInFeed.tsx";
+import {PostDetails} from "../components/PostDetails.tsx";
 import {useNavigate} from "react-router";
 import SearchBar from "../components/SearchBar.tsx";
 
@@ -56,13 +56,13 @@ export function Feed() {
             </header>
 
             <main>
-                {posts.map(post => {
-                    return <PostInFeed
+                {posts.map(post => (
+                    <PostDetails
                         key={post.id}
                         post={post}
                         onDelete={deletePost}
-                    />;
-                })}
+                    />
+                ))}
             </main>
         </>
     );
