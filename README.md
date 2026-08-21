@@ -25,7 +25,7 @@ A social media application built with React, TypeScript, Vite and Bun.
 ```text
 src/
 ├── components/
-│   ├── PostInFeed.tsx
+│   ├── PostDetails.tsx
 │   └── SearchBar.tsx
 ├── pages/
 │   ├── Feed.tsx
