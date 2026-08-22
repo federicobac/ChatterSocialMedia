@@ -8,19 +8,33 @@ export function PostPage() {
     const {id} = useParams<{ id: string }>();
     const navigate = useNavigate();
 
-    const [post, setPost] = useState<Post[]>([]);
+    const [post, setPost] = useState<Post | null>(null);
     const [comments, setComments] = useState<Comment[]>([]);
 
     useEffect(() => {
-        fetch(`https://dummyjson.com/posts/${id}`)
-            .then(response => response.json())
-            .then(json => setPost([json]))
+        getPost();
 
-        fetch(`https://dummyjson.com/posts/${id}/comments`)
-            .then(response => response.json())
-            .then(json => setComments(json.comments));
+        getComments();
 
     }, [id]);
+
+    async function getPost() {
+        const response = await fetch(
+            `https://dummyjson.com/posts/${id}`,
+        )
+
+        const json: Post = await response.json();
+        setPost(json);
+    }
+
+    async function getComments() {
+        const response = await fetch(
+            `https://dummyjson.com/posts/${id}/comments`,
+        )
+
+        const json = await response.json();
+        setComments(json.comments);
+    }
 
     async function deletePost() {
 
@@ -38,27 +52,28 @@ export function PostPage() {
 
     }
 
+    if (post === null) {
+        return <p>Loading...</p>
+    }
+
 
     return (
         <main>
 
             <article>
-                {post.map(post =>
-                    <div key={post.id}>
-                        <h1>{post.title}</h1>
-                        <p>{post.body}</p>
+                <h1>{post.title}</h1>
+                <p>{post.body}</p>
 
-                        <p>
-                            👍{post.reactions.likes}
-                            👎{post.reactions.dislikes}
-                            👁 {post.views}
-                        </p>
+                <p>
+                    👍{post.reactions.likes}
+                    👎{post.reactions.dislikes}
+                    👁 {post.views}
+                </p>
 
-                        <button onClick={deletePost}>
-                            Delete Post
-                        </button>
-                    </div>
-                )}
+                <button onClick={deletePost}>
+                    Delete Post
+                </button>
+
             </article>
 
             <section>
